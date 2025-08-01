@@ -18,16 +18,20 @@
 ## 🖼️ Screenshots
 
 ### 🔷 Hero + About Section  
-![Hero and About](./public/assets/hero.png)
+![Hero and About](./readme-assets/hero.png)
+
 
 ### 🛠️ Skills Section  
-![Skills](./public/assets/skills.png)
+![Skills](./readme-assets/skills.png)
+
 
 ### 📂 Projects Section  
-![Projects](./public/assets/projects.png)
+![Projects](./readme-assets/projects.png)
+
 
 ### 🧩 Experience Timeline  
-![Experience](./public/assets/Experience.png)
+![Experience](./readme-assets/Experience.png)
+
 
 ---
 
