@@ -17,8 +17,8 @@
 
 ## 🖼️ Screenshots
 
-### 🔷 Hero + About Section  
-![Hero and About](./readme-assets/home.png)
+### 🔷 hero + About Section  
+![hero and About](./readme-assets/hero.png)
 
 
 ### 🛠️ Skills Section  
@@ -123,7 +123,7 @@ This project is open source under the [MIT License](LICENSE).
 - [React](https://react.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Framer Motion](https://www.framer.com/motion/)
-- [Heroicons & React Icons](https://react-icons.github.io/react-icons/)
+- [heroicons & React Icons](https://react-icons.github.io/react-icons/)
 
 ---
 

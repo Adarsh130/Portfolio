@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaDownload } from "react-icons/fa";
 
-const Hero = () => {
+const Home = () => {
   const fullText = "Adarsh Paswan";
   const [displayed, setDisplayed] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -34,7 +34,7 @@ const Hero = () => {
 
   return (
     <section
-      id="hero"
+      id="home"
       className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-white dark:bg-black transition-colors duration-500 animate-fade-in"
     >
       <div className="space-y-6">
@@ -95,4 +95,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Home;

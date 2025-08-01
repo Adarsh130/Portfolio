@@ -36,7 +36,7 @@ const Navbar = () => {
         {/* Logo */}
         <h1 className="font-extrabold text-2xl text-blue-600 dark:text-blue-400 tracking-tight glow">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">
-            Portfolio
+            PORTFOLIO
           </span>
         </h1>
 

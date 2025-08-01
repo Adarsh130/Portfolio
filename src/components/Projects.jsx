@@ -19,7 +19,7 @@ const projects = [
   {
     title: "Weather APP",
     description:
-      "A weather app using HTML/CSS/JavaScript that fetches real-time weather data.",
+      "A weather app using Flask and HTML/Bootstrap that fetches real-time weather data.",
     url: "https://github.com/Adarsh130/Weather_APP",
     demo: "https://weather-app-by-adarsh.up.railway.app/",
     image: weatherApp,
@@ -27,7 +27,7 @@ const projects = [
   {
     title: "Bit IEEE Conference Webpage",
     description:
-      "A modern JavaScript-powered responsive website for an IEEE conference or college event.",
+      "A modern React.js powered responsive website for an IEEE conference or college event.",
     url: "https://github.com/Adarsh130/Bit_IEEE_website",
     demo: "https://bit-conference-2025.netlify.app",
     image: ieeeSite,

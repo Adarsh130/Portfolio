@@ -13,7 +13,7 @@ const experiences = [
     year: "2025",
     role: "IEEE Conference Website",
     description:
-      "Designed and built a modern event website using HTML, CSS, and JavaScript with responsive layout.",
+      "Designed and built a modern event website using React.js with responsive layout.",
     icon: <FaGlobe className="text-2xl text-blue-600 dark:text-blue-300" />,
   },
   {
