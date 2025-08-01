@@ -10,7 +10,7 @@ const Navbar = () => {
   }, [darkMode]);
 
   const navItems = [
-    'hero',
+    'home',
     'about',
     'skills',
     'projects',
