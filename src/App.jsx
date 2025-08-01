@@ -13,10 +13,9 @@ import Footer from "./components/Footer";
 import { Analytics } from "@vercel/analytics/react"; // ✅ Correct import for Vite + React
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
-
 function App() {
   return (
-    <div className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">
+    <div className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white overflow-x-hidden">
       <Navbar />
       <main className="pt-20">
         <Home />
