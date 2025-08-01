@@ -18,7 +18,7 @@
 ## 🖼️ Screenshots
 
 ### 🔷 Hero + About Section  
-![Hero and About](./readme-assets/hero.png)
+![Hero and About](./readme-assets/home.png)
 
 
 ### 🛠️ Skills Section  
