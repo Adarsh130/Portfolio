@@ -1,3 +1,5 @@
+// src/App.jsx
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -8,6 +10,7 @@ import Testimonials from "./components/Testimonials";
 import Blog from "./components/Blog";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import { Analytics } from "@vercel/analytics/react"; // ✅ Correct import for Vite + React
 
 function App() {
   return (
@@ -24,6 +27,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <Analytics /> {/* ✅ Vercel Analytics integration */}
     </div>
   );
 }
