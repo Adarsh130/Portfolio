@@ -10,9 +10,9 @@ import Testimonials from "./components/Testimonials";
 import Blog from "./components/Blog";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import { Analytics } from "@vercel/analytics/react"; // ✅ Correct import for Vite + React
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
-import { Analytics } from "@vercel/analytics/react"; // ✅ Vercel Analytics
-import { SpeedInsights } from "@vercel/speed-insights/next"; // ✅ Vercel Speed Insights
 
 function App() {
   return (
@@ -29,8 +29,8 @@ function App() {
         <Contact />
       </main>
       <Footer />
-      <Analytics /> {/* Vercel Analytics tracking */}
-      <SpeedInsights /> {/* Vercel Speed Insights tracking */}
+      <Analytics /> {/* ✅ Vercel Analytics integration */}
+      <SpeedInsights /> {/* ✅ Vercel Speed Insights integration */}
     </div>
   );
 }
