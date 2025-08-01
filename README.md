@@ -18,16 +18,16 @@
 ## 🖼️ Screenshots
 
 ### 🔷 Hero + About Section  
-![Hero and About](./screenshots/hero_about.png)
+![Hero and About](./public/assets/hero.png)
 
 ### 🛠️ Skills Section  
-![Skills](./screenshots/skills.png)
+![Skills](./public/assets/skills.png)
 
 ### 📂 Projects Section  
-![Projects](./screenshots/projects.png)
+![Projects](./public/assets/projects.png)
 
 ### 🧩 Experience Timeline  
-![Experience](./screenshots/experience.png)
+![Experience](./public/assets/Experience.png)
 
 ---
 
@@ -93,16 +93,6 @@ Portfolio/
 ├── package.json
 └── README.md
 ```
-
----
-
-## 🌍 Deployment
-
-Deploy your portfolio using platforms like:
-
-- [Vercel](https://vercel.com/)
-- [Netlify](https://netlify.com/)
-- [GitHub Pages](https://pages.github.com/)
 
 ---
 
