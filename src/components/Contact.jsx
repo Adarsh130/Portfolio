@@ -50,7 +50,7 @@ const Contact = () => {
             className="flex items-center gap-4 px-6 py-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-xl transition-all hover:scale-105 text-gray-800 dark:text-white"
           >
             <FaGithub className="text-2xl text-black dark:text-white" />
-            <span>github.com/Adarsh130</span>
+            <span>github.com/Adarsh</span>
           </a>
           <a
             href="https://linkedin.com/in/adarsh1306"
@@ -59,7 +59,7 @@ const Contact = () => {
             className="flex items-center gap-4 px-6 py-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-xl transition-all hover:scale-105 text-gray-800 dark:text-white"
           >
             <FaLinkedin className="text-2xl text-blue-700" />
-            <span>linkedin.com/in/adarsh1306</span>
+            <span>linkedin.com/in/Adarsh</span>
           </a>
           <a
             href="https://instagram.com/_adarsh.13._"
@@ -68,7 +68,7 @@ const Contact = () => {
             className="flex items-center gap-4 px-6 py-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-xl transition-all hover:scale-105 text-gray-800 dark:text-white"
           >
             <FaInstagram className="text-2xl text-pink-500" />
-            <span>instagram.com/_adarsh.13._</span>
+            <span>instagram.com/Adarsh</span>
           </a>
           <a
             href="https://twitter.com/Zacknyt03"
@@ -77,7 +77,7 @@ const Contact = () => {
             className="flex items-center gap-4 px-6 py-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-xl transition-all hover:scale-105 text-gray-800 dark:text-white"
           >
             <FaTwitter className="text-2xl text-blue-400" />
-            <span>twitter.com/Zacknyt03</span>
+            <span>twitter.com/Adarsh</span>
           </a>
         </div>
       </div>
