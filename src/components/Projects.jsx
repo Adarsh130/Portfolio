@@ -12,8 +12,8 @@ const projects = [
     title: "AI-Based Tutoring Platform",
     description:
       "Built an intelligent tutoring system with a Python AI assistant and frontend using HTML/CSS.",
-    url: "https://github.com/Adarsh130/Insurance_Prediction",
-    demo: "https://diabetesprediction.up.railway.app/",
+    url: "https://github.com/Harsha-pandey9/Ai-Based-Tutoring-",
+    demo: "https://tutoringbyai.netlify.app/",
     image: aibased,
   },
   {
