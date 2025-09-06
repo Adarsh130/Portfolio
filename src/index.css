@@ -4,11 +4,22 @@
 
 
 
-/* Smooth transitions for all elements */
+/* Optimized transitions - only for necessary properties */
 * {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-property: color, background-color, border-color, opacity, transform;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-duration: 300ms;
+}
+
+/* Specific transitions for performance-critical elements */
+.btn, button, a {
+  transition-property: transform, opacity, background-color;
+  transition-duration: 200ms;
+}
+
+.card, .project-card, .skill-card {
+  transition-property: transform, box-shadow;
+  transition-duration: 300ms;
 }
 
 /* Custom scrollbar for webkit browsers */
@@ -65,6 +76,7 @@ body {
   will-change: transform;
   transform: translateZ(0);
   backface-visibility: hidden;
+  contain: layout style paint;
 }
 
 /* Optimize isotope elements */
@@ -77,11 +89,37 @@ body {
   will-change: transform, opacity;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
+  contain: layout style paint;
 }
 
 /* Ensure all motion elements have will-change */
 [data-framer-motion] {
   will-change: transform, opacity;
+  contain: layout style paint;
+}
+
+/* Performance optimizations for cards and interactive elements */
+.hover-card {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Optimize text rendering */
+.optimized-text {
+  text-rendering: optimizeSpeed;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Critical rendering optimizations */
+.critical-section {
+  contain: layout style;
+}
+
+.non-critical-section {
+  contain: layout style paint;
 }
 
 /* Reduce motion for accessibility */

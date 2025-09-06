@@ -1,18 +1,24 @@
 // src/App.jsx
 
+import React, { Suspense } from 'react';
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import About from "./components/About";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects";
-import Experience from "./components/Experience";
-import Testimonials from "./components/Testimonials";
-import Blog from "./components/Blog";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import LoadingSpinner from "./components/LoadingSpinner";
 import { Analytics } from "@vercel/analytics/react"; // ✅ Correct import for Vite + React
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { ThemeProvider } from "./contexts/ThemeContext";
+
+// Lazy load components for better performance
+import {
+  LazyAbout,
+  LazySkills,
+  LazyProjects,
+  LazyExperience,
+  LazyTestimonials,
+  LazyBlog,
+  LazyContact
+} from "./components/LazyComponents";
 
 function App() {
 
@@ -22,13 +28,35 @@ function App() {
         <Navbar />
         <main className="pt-20">
           <Home />
-          <About />
-          <Skills />
-          <Projects />
-          <Experience />
-          <Testimonials />
-          <Blog />
-          <Contact />
+          
+          {/* Lazy loaded sections with suspense */}
+          <Suspense fallback={<LoadingSpinner message="Loading About..." />}>
+            <LazyAbout />
+          </Suspense>
+          
+          <Suspense fallback={<LoadingSpinner message="Loading Skills..." />}>
+            <LazySkills />
+          </Suspense>
+          
+          <Suspense fallback={<LoadingSpinner message="Loading Projects..." />}>
+            <LazyProjects />
+          </Suspense>
+          
+          <Suspense fallback={<LoadingSpinner message="Loading Experience..." />}>
+            <LazyExperience />
+          </Suspense>
+          
+          <Suspense fallback={<LoadingSpinner message="Loading Testimonials..." />}>
+            <LazyTestimonials />
+          </Suspense>
+          
+          <Suspense fallback={<LoadingSpinner message="Loading Blog..." />}>
+            <LazyBlog />
+          </Suspense>
+          
+          <Suspense fallback={<LoadingSpinner message="Loading Contact..." />}>
+            <LazyContact />
+          </Suspense>
         </main>
         <Footer />
         <Analytics /> {/* ✅ Vercel Analytics integration */}

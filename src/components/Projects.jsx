@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import aibased from "../assets/projects/ai-based.png";
 import weatherApp from "../assets/projects/weather.png";
@@ -7,6 +7,8 @@ import iriesModel from "../assets/projects/iries.png";
 import insurance from "../assets/projects/insurance.png";
 import diabetes from "../assets/projects/diabetes.png";
 import { IsotopeUI } from "./isotope";
+import OptimizedImage from "./OptimizedImage";
+import { FadeInSection, OptimizedCard } from "./animations";
 
 const projects = [
   {
@@ -59,16 +61,78 @@ const projects = [
   },
 ];
 
-const Projects = () => {
+// Memoized project card component for better performance
+const ProjectCard = memo(({ project, index }) => (
+  <FadeInSection 
+    direction="up" 
+    delay={index * 0.1}
+    className="h-full"
+  >
+    <OptimizedCard
+      className="bg-white/40 dark:bg-gray-800/40 backdrop-blur-lg border border-white/20 dark:border-gray-700 rounded-3xl shadow-xl p-6 flex flex-col justify-between min-h-[380px] hover-card h-full"
+      hoverScale={1.02}
+      hoverY={-8}
+    >
+      {project.image && (
+        <OptimizedImage
+          src={project.image}
+          alt={project.title}
+          className="w-full h-44 rounded-xl mb-4 shadow-md"
+          priority={index < 3} // Prioritize first 3 images
+        />
+      )}
+      <div className="flex-grow">
+        <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2 optimized-text">
+          {project.title}
+        </h3>
+        <p className="text-gray-700 dark:text-gray-300 text-sm optimized-text">
+          {project.description}
+        </p>
+      </div>
+      <div className="mt-5 flex flex-wrap gap-3">
+        {project.url && (
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-full shadow-md hover:bg-gray-800 transition text-sm btn"
+          >
+            <FaGithub className="text-lg" />
+            GitHub
+          </a>
+        )}
+        {project.demo ? (
+          <a
+            href={project.demo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-full shadow-md hover:bg-green-700 transition text-sm btn"
+          >
+            <FaExternalLinkAlt className="text-sm" />
+            Live Demo
+          </a>
+        ) : (
+          <span className="text-sm text-gray-400 italic mt-1">
+            🔒 Demo Coming Soon
+          </span>
+        )}
+      </div>
+    </OptimizedCard>
+  </FadeInSection>
+));
+
+ProjectCard.displayName = 'ProjectCard';
+
+const Projects = memo(() => {
   return (
     <section
       id="projects"
-      className="relative min-h-screen px-6 py-20 bg-white dark:bg-black transition-colors duration-500 overflow-hidden"
+      className="relative min-h-screen px-6 py-20 bg-white dark:bg-black transition-colors duration-500 overflow-hidden non-critical-section"
     >
       {/* Isotope UI Background */}
       <IsotopeUI
         theme="green"
-        intensity="ultra"
+        intensity="medium" // Reduced from ultra for better performance
         showGrid={true}
         showParticles={true}
         showBackground={true}
@@ -82,60 +146,19 @@ const Projects = () => {
       <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-purple-400 opacity-30 rounded-full blur-3xl animate-blob2 pointer-events-none"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white drop-shadow-lg mb-14">
-          My Projects
-        </h2>
+        <FadeInSection direction="up" className="mb-14">
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white drop-shadow-lg optimized-text">
+            My Projects
+          </h2>
+        </FadeInSection>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project, index) => (
-            <div
-              key={index}
-              className="bg-white/40 dark:bg-gray-800/40 backdrop-blur-lg border border-white/20 dark:border-gray-700 rounded-3xl shadow-xl p-6 flex flex-col justify-between min-h-[380px] transition-transform hover:-translate-y-2 hover:scale-105 duration-300"
-            >
-              {project.image && (
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-44 object-cover rounded-xl mb-4 shadow-md"
-                />
-              )}
-              <div className="flex-grow">
-                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-gray-700 dark:text-gray-300 text-sm">
-                  {project.description}
-                </p>
-              </div>
-              <div className="mt-5 flex flex-wrap gap-3">
-                {project.url && (
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-full shadow-md hover:bg-gray-800 transition text-sm"
-                  >
-                    <FaGithub className="text-lg" />
-                    GitHub
-                  </a>
-                )}
-                {project.demo ? (
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-full shadow-md hover:bg-green-700 transition text-sm"
-                  >
-                    <FaExternalLinkAlt className="text-sm" />
-                    Live Demo
-                  </a>
-                ) : (
-                  <span className="text-sm text-gray-400 italic mt-1">
-                    🔒 Demo Coming Soon
-                  </span>
-                )}
-              </div>
-            </div>
+            <ProjectCard 
+              key={`project-${index}`} 
+              project={project} 
+              index={index} 
+            />
           ))}
         </div>
       </div>
@@ -162,6 +185,8 @@ const Projects = () => {
       </style>
     </section>
   );
-};
+});
+
+Projects.displayName = 'Projects';
 
 export default Projects;
