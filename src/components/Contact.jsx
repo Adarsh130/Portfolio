@@ -7,13 +7,26 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import React from "react";
+import { IsotopeUI } from "./isotope";
 
 const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4 py-20 bg-gradient-to-br from-gray-100 via-white to-gray-200 dark:from-gray-800 dark:via-gray-900 dark:to-black transition-colors duration-500"
+      className="relative min-h-screen flex flex-col items-center justify-center px-4 py-20 bg-gradient-to-br from-gray-100 via-white to-gray-200 dark:from-gray-800 dark:via-gray-900 dark:to-black transition-colors duration-500 overflow-hidden"
     >
+      {/* Isotope UI Background */}
+      <IsotopeUI
+        theme="green"
+        intensity="high"
+        showGrid={true}
+        showParticles={true}
+        showBackground={true}
+        animated={true}
+        glowEffects={true}
+        magneticParticles={true}
+        morphingShapes={false}
+      />
       {/* Decorative Blobs */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-pink-300 opacity-20 rounded-full filter blur-3xl animate-blob1 pointer-events-none"></div>
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-300 opacity-20 rounded-full filter blur-3xl animate-blob2 pointer-events-none"></div>

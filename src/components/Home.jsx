@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaDownload } from "react-icons/fa";
+import { IsotopeUI } from "./isotope";
 
 const Home = () => {
   const fullText = "Adarsh Paswan";
@@ -37,7 +38,19 @@ const Home = () => {
       id="home"
       className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-white dark:bg-black transition-colors duration-500 animate-fade-in"
     >
-      <div className="space-y-6">
+      {/* Isotope UI Background */}
+      <IsotopeUI
+        theme="blue"
+        intensity="high"
+        showGrid={true}
+        showParticles={true}
+        showBackground={true}
+        animated={true}
+        glowEffects={true}
+        magneticParticles={true}
+        morphingShapes={true}
+      />
+      <div className="relative z-10 space-y-6">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white drop-shadow-xl glow-text">
           Hi, I'm{" "}
           <span className="text-blue-700 dark:text-blue-400 border-r-2 border-blue-700 dark:border-blue-400 pr-1 animate-cursor">

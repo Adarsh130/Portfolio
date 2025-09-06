@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Navbar = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode, isSystemTheme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const root = document.documentElement;
-    darkMode ? root.classList.add('dark') : root.classList.remove('dark');
-  }, [darkMode]);
 
   const navItems = [
     'home',
@@ -55,11 +51,15 @@ const Navbar = () => {
           ))}
           <li>
             <button
-              onClick={() => setDarkMode(!darkMode)}
-              className="ml-4 p-2 rounded-full bg-gray-200 dark:bg-zinc-700 hover:bg-blue-100 dark:hover:bg-zinc-600 text-gray-900 dark:text-gray-100 shadow-md transition"
+              onClick={toggleTheme}
+              className="ml-4 p-2 rounded-full bg-gray-200 dark:bg-zinc-700 hover:bg-blue-100 dark:hover:bg-zinc-600 text-gray-900 dark:text-gray-100 shadow-md transition relative group"
               aria-label="Toggle dark mode"
+              title={isSystemTheme ? `Following system theme (${darkMode ? 'Dark' : 'Light'})` : `Manual theme (${darkMode ? 'Dark' : 'Light'})`}
             >
               {darkMode ? '☀️' : '🌙'}
+              {isSystemTheme && (
+                <span className="absolute -top-1 -right-1 w-2 h-2 bg-blue-500 rounded-full animate-pulse" title="Following system theme"></span>
+              )}
             </button>
           </li>
         </ul>
@@ -67,11 +67,15 @@ const Navbar = () => {
         {/* Mobile Icons */}
         <div className="flex items-center md:hidden gap-2">
           <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="p-2 rounded-full bg-gray-200 dark:bg-zinc-700 hover:bg-blue-100 dark:hover:bg-zinc-600 text-gray-900 dark:text-gray-100 shadow-md transition"
+            onClick={toggleTheme}
+            className="p-2 rounded-full bg-gray-200 dark:bg-zinc-700 hover:bg-blue-100 dark:hover:bg-zinc-600 text-gray-900 dark:text-gray-100 shadow-md transition relative"
             aria-label="Toggle dark mode"
+            title={isSystemTheme ? `Following system theme (${darkMode ? 'Dark' : 'Light'})` : `Manual theme (${darkMode ? 'Dark' : 'Light'})`}
           >
             {darkMode ? '☀️' : '🌙'}
+            {isSystemTheme && (
+              <span className="absolute -top-1 -right-1 w-2 h-2 bg-blue-500 rounded-full animate-pulse" title="Following system theme"></span>
+            )}
           </button>
 
           <button

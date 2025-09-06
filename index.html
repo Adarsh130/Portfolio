@@ -4,6 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Adarsh's Portfolio</title>
+    
+    <!-- Theme initialization script to prevent flash of unstyled content -->
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        const savedIsSystemTheme = localStorage.getItem('isSystemTheme');
+        
+        if (savedTheme && savedIsSystemTheme === 'false') {
+          // User has manually set a preference
+          if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+          }
+        } else {
+          // Use system preference
+          if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+          }
+        }
+      })();
+    </script>
   </head>
   <body class="bg-white text-black dark:bg-gray-900 dark:text-white transition-colors">
     <div id="root"></div>

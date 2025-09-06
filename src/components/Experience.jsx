@@ -1,5 +1,6 @@
 import React from "react";
 import { FaRobot, FaGlobe, FaChartLine, FaImage, FaLaptopCode, FaCloudSun } from "react-icons/fa";
+import { IsotopeUI } from "./isotope";
 
 const experiences = [
   {
@@ -49,6 +50,18 @@ const experiences = [
 const Experience = () => {
   return (
     <section id="experience" className="relative px-4 py-20 bg-white dark:bg-black overflow-hidden">
+      {/* Isotope UI Background */}
+      <IsotopeUI
+        theme="indigo"
+        intensity="high"
+        showGrid={true}
+        showParticles={true}
+        showBackground={true}
+        animated={true}
+        glowEffects={true}
+        magneticParticles={false}
+        morphingShapes={true}
+      />
       {/* Decorative blobs */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-pink-300 opacity-20 rounded-full filter blur-3xl animate-blob1 pointer-events-none"></div>
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-300 opacity-20 rounded-full filter blur-3xl animate-blob2 pointer-events-none"></div>

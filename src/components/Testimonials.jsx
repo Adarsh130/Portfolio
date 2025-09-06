@@ -1,4 +1,5 @@
 import React from "react";
+import { IsotopeUI } from "./isotope";
 
 const testimonials = [
   {
@@ -24,6 +25,18 @@ const Testimonials = () => {
       id="testimonials"
       className="relative flex flex-col items-center justify-center px-4 py-16 bg-gray-100 dark:bg-gray-900 overflow-hidden"
     >
+      {/* Isotope UI Background */}
+      <IsotopeUI
+        theme="orange"
+        intensity="medium"
+        showGrid={true}
+        showParticles={true}
+        showBackground={true}
+        animated={true}
+        glowEffects={true}
+        magneticParticles={true}
+        morphingShapes={false}
+      />
       {/* Blobs */}
       <div className="absolute top-0 left-0 w-40 h-40 bg-pink-400 opacity-20 rounded-full filter blur-3xl animate-blob1 pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-40 h-40 bg-blue-400 opacity-20 rounded-full filter blur-3xl animate-blob2 pointer-events-none" />

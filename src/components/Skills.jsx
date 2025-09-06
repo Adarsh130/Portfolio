@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 import { SiC, SiMongodb, SiTensorflow } from "react-icons/si";
 import { MdOutlineMemory } from "react-icons/md";
+import { IsotopeUI } from "./isotope";
 
 const skills = [
   { name: "Python", icon: <FaPython className="text-yellow-500" /> },
@@ -27,8 +28,20 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="relative px-6 py-20 bg-gradient-to-br from-blue-50 via-purple-100 to-pink-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-500"
+      className="relative px-6 py-20 bg-gradient-to-br from-blue-50 via-purple-100 to-pink-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-500 overflow-hidden"
     >
+      {/* Isotope UI Background */}
+      <IsotopeUI
+        theme="pink"
+        intensity="high"
+        showGrid={true}
+        showParticles={true}
+        showBackground={true}
+        animated={true}
+        glowEffects={true}
+        magneticParticles={true}
+        morphingShapes={true}
+      />
       {/* Decorative Blobs */}
       <div className="absolute -top-20 -left-20 w-60 h-60 bg-pink-400 opacity-30 rounded-full blur-3xl animate-blob1 pointer-events-none"></div>
       <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-blue-400 opacity-30 rounded-full blur-3xl animate-blob2 pointer-events-none"></div>

@@ -6,6 +6,7 @@ import ieeeSite from "../assets/projects/ieee.png";
 import iriesModel from "../assets/projects/iries.png";
 import insurance from "../assets/projects/insurance.png";
 import diabetes from "../assets/projects/diabetes.png";
+import { IsotopeUI } from "./isotope";
 
 const projects = [
   {
@@ -62,8 +63,20 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="relative min-h-screen px-6 py-20 bg-white dark:bg-black transition-colors duration-500"
+      className="relative min-h-screen px-6 py-20 bg-white dark:bg-black transition-colors duration-500 overflow-hidden"
     >
+      {/* Isotope UI Background */}
+      <IsotopeUI
+        theme="green"
+        intensity="ultra"
+        showGrid={true}
+        showParticles={true}
+        showBackground={true}
+        animated={true}
+        glowEffects={true}
+        magneticParticles={false}
+        morphingShapes={true}
+      />
       {/* Blurred background blobs */}
       <div className="absolute -top-20 -left-20 w-72 h-72 bg-pink-400 opacity-30 rounded-full blur-3xl animate-blob1 pointer-events-none"></div>
       <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-purple-400 opacity-30 rounded-full blur-3xl animate-blob2 pointer-events-none"></div>

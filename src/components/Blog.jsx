@@ -1,5 +1,6 @@
 import React from "react";
 import { FaRegCalendarAlt } from "react-icons/fa";
+import { IsotopeUI } from "./isotope";
 
 const blogPosts = [
   {
@@ -34,6 +35,18 @@ const Blog = () => {
       id="blog"
       className="relative flex flex-col items-center justify-center px-4 py-20 bg-gradient-to-b from-white via-blue-50 to-white dark:from-black dark:via-gray-900 dark:to-black overflow-hidden"
     >
+      {/* Isotope UI Background */}
+      <IsotopeUI
+        theme="blue"
+        intensity="medium"
+        showGrid={true}
+        showParticles={true}
+        showBackground={true}
+        animated={true}
+        glowEffects={true}
+        magneticParticles={false}
+        morphingShapes={true}
+      />
       {/* Decorative Backgrounds */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-pink-400 opacity-20 rounded-full blur-3xl animate-blob1 pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-500 opacity-20 rounded-full blur-3xl animate-blob2 pointer-events-none" />

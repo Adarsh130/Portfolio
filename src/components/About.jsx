@@ -1,5 +1,6 @@
 import React from "react";
 import profilePic from "../assets/profile.jpg"; // Replace with your actual image path
+import { IsotopeUI } from "./isotope";
 
 const About = () => {
   return (
@@ -7,6 +8,18 @@ const About = () => {
       id="about"
       className="relative min-h-screen flex items-center justify-center px-6 py-16 bg-white dark:bg-black transition-colors duration-500 overflow-hidden"
     >
+      {/* Isotope UI Background */}
+      <IsotopeUI
+        theme="purple"
+        intensity="medium"
+        showGrid={true}
+        showParticles={true}
+        showBackground={true}
+        animated={true}
+        glowEffects={true}
+        magneticParticles={false}
+        morphingShapes={true}
+      />
       {/* Decorative Blobs */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-blue-300 opacity-20 rounded-full filter blur-3xl animate-blob1 pointer-events-none"></div>
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-pink-300 opacity-20 rounded-full filter blur-3xl animate-blob2 pointer-events-none"></div>
@@ -101,4 +114,4 @@ const About = () => {
   );
 };
 
-export  default About;
+export default About;
