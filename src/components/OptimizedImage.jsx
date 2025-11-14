@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const OptimizedImage = ({ 
@@ -7,10 +7,41 @@ const OptimizedImage = ({
   className = '',
   priority = false,
   placeholder = true,
+  width,
+  height,
   ...props 
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [currentSrc, setCurrentSrc] = useState('');
+
+  useEffect(() => {
+    // Create WebP/AVIF source set if supported
+    const img = new Image();
+    
+    // Check for WebP support and use it if available
+    if (src.endsWith('.jpg') || src.endsWith('.jpeg') || src.endsWith('.png')) {
+      const baseSrc = src.substring(0, src.lastIndexOf('.'));
+      const ext = src.substring(src.lastIndexOf('.'));
+      
+      // Try WebP first for better compression
+      const webpSrc = `${baseSrc}.webp`;
+      
+      img.onerror = () => {
+        // Fallback to original if WebP not found
+        setCurrentSrc(src);
+      };
+      
+      img.onload = () => {
+        setCurrentSrc(webpSrc);
+      };
+      
+      // For now, just use original - WebP conversion should be done at build time
+      setCurrentSrc(src);
+    } else {
+      setCurrentSrc(src);
+    }
+  }, [src]);
 
   const handleLoad = () => {
     setIsLoaded(true);
@@ -23,40 +54,30 @@ const OptimizedImage = ({
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      {/* Placeholder/Loading state */}
+      {/* Placeholder/Loading state - Simplified for performance */}
       {placeholder && !isLoaded && (
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700"
-          animate={{
-            backgroundPosition: ['200% 0', '-200% 0'],
-          }}
-          transition={{
-            duration: 1.5,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-          style={{
-            backgroundSize: '200% 100%',
-          }}
+        <div
+          className="absolute inset-0 bg-gray-200 dark:bg-gray-700 animate-pulse"
         />
       )}
       
       {/* Actual Image */}
       <motion.img
-        src={src}
+        src={currentSrc || src}
         alt={alt}
+        width={width}
+        height={height}
         loading={priority ? 'eager' : 'lazy'}
         decoding="async"
+        fetchpriority={priority ? 'high' : 'auto'}
         onLoad={handleLoad}
         onError={handleError}
         initial={{ opacity: 0 }}
         animate={{ opacity: isLoaded ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.2, ease: 'easeOut' }}
         className={`w-full h-full object-cover ${hasError ? 'hidden' : ''}`}
         style={{
-          // Optimize for performance
-          willChange: 'opacity',
-          backfaceVisibility: 'hidden',
+          willChange: 'opacity'
         }}
         {...props}
       />

@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { FaDownload } from "react-icons/fa";
 import { IsotopeUI } from "./isotope";
+import { useDevicePerformance, getRecommendedIntensity, shouldEnableIsotope } from "../hooks/useDevicePerformance";
 
 const Home = () => {
   const fullText = "Adarsh Paswan";
   const [displayed, setDisplayed] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
+  const devicePerformance = useDevicePerformance();
 
   // Typing effect
   useEffect(() => {
@@ -38,18 +40,20 @@ const Home = () => {
       id="home"
       className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-white dark:bg-black transition-colors duration-500 animate-fade-in"
     >
-      {/* Isotope UI Background */}
-      <IsotopeUI
-        theme="blue"
-        intensity="high"
-        showGrid={true}
-        showParticles={true}
-        showBackground={true}
-        animated={true}
-        glowEffects={true}
-        magneticParticles={true}
-        morphingShapes={true}
-      />
+      {/* Isotope UI Background - Optimized based on device performance */}
+      {shouldEnableIsotope(devicePerformance) && (
+        <IsotopeUI
+          theme="blue"
+          intensity={getRecommendedIntensity(devicePerformance)}
+          showGrid={true}
+          showParticles={!devicePerformance.isMobile}
+          showBackground={true}
+          animated={!devicePerformance.shouldReduceMotion}
+          glowEffects={false}
+          magneticParticles={false}
+          morphingShapes={false}
+        />
+      )}
       <div className="relative z-10 space-y-6">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white drop-shadow-xl glow-text">
           Hi, I'm{" "}

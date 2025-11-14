@@ -2,24 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-/* Optimized transitions - only for necessary properties */
+/* Performance optimizations */
 * {
-  transition-property: color, background-color, border-color, opacity, transform;
-  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition-duration: 300ms;
+  box-sizing: border-box;
 }
 
-/* Specific transitions for performance-critical elements */
+/* Optimize animations - use GPU acceleration */
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Reduced motion for accessibility and performance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Optimized transitions - only for necessary properties */
 .btn, button, a {
-  transition-property: transform, opacity, background-color;
+  transition-property: transform, opacity, background-color, color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 200ms;
+  will-change: transform;
+}
+
+.btn:hover, button:hover, a:hover {
+  will-change: auto;
 }
 
 .card, .project-card, .skill-card {
   transition-property: transform, box-shadow;
-  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 250ms;
+}
+
+/* Prevent layout shift */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Custom scrollbar for webkit browsers */
@@ -108,7 +137,6 @@ body {
 /* Optimize text rendering */
 .optimized-text {
   text-rendering: optimizeSpeed;
-  font-smooth: always;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

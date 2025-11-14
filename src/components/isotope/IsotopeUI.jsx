@@ -79,39 +79,39 @@ const IsotopeUI = ({
 
   const intensityConfig = {
     low: {
-      gridOpacity: 0.04,
-      particleCount: 20,
-      particleOpacity: 0.25,
+      gridOpacity: 0.03,
+      particleCount: 8,
+      particleOpacity: 0.2,
       backgroundDensity: 'low',
-      backgroundOpacity: 0.06,
-      gridSize: 25,
+      backgroundOpacity: 0.04,
+      gridSize: 30,
       pulseIntensity: 'low'
     },
     medium: {
-      gridOpacity: 0.07,
-      particleCount: 35,
-      particleOpacity: 0.4,
+      gridOpacity: 0.05,
+      particleCount: 15,
+      particleOpacity: 0.3,
       backgroundDensity: 'medium',
-      backgroundOpacity: 0.1,
-      gridSize: 20,
+      backgroundOpacity: 0.06,
+      gridSize: 25,
       pulseIntensity: 'medium'
     },
     high: {
-      gridOpacity: 0.12,
-      particleCount: 55,
-      particleOpacity: 0.6,
+      gridOpacity: 0.08,
+      particleCount: 25,
+      particleOpacity: 0.4,
       backgroundDensity: 'high',
-      backgroundOpacity: 0.15,
-      gridSize: 15,
+      backgroundOpacity: 0.08,
+      gridSize: 20,
       pulseIntensity: 'high'
     },
     ultra: {
-      gridOpacity: 0.18,
-      particleCount: 75,
-      particleOpacity: 0.8,
+      gridOpacity: 0.1,
+      particleCount: 35,
+      particleOpacity: 0.5,
       backgroundDensity: 'ultra',
-      backgroundOpacity: 0.2,
-      gridSize: 12,
+      backgroundOpacity: 0.1,
+      gridSize: 18,
       pulseIntensity: 'high'
     }
   };

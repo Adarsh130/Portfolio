@@ -77,8 +77,10 @@ const ProjectCard = memo(({ project, index }) => (
         <OptimizedImage
           src={project.image}
           alt={project.title}
+          width={400}
+          height={176}
           className="w-full h-44 rounded-xl mb-4 shadow-md"
-          priority={index < 3} // Prioritize first 3 images
+          priority={index < 2}
         />
       )}
       <div className="flex-grow">
@@ -129,17 +131,17 @@ const Projects = memo(() => {
       id="projects"
       className="relative min-h-screen px-6 py-20 bg-white dark:bg-black transition-colors duration-500 overflow-hidden non-critical-section"
     >
-      {/* Isotope UI Background */}
+      {/* Isotope UI Background - Optimized */}
       <IsotopeUI
         theme="green"
-        intensity="medium" // Reduced from ultra for better performance
+        intensity="low"
         showGrid={true}
         showParticles={true}
         showBackground={true}
         animated={true}
-        glowEffects={true}
+        glowEffects={false}
         magneticParticles={false}
-        morphingShapes={true}
+        morphingShapes={false}
       />
       {/* Blurred background blobs */}
       <div className="absolute -top-20 -left-20 w-72 h-72 bg-pink-400 opacity-30 rounded-full blur-3xl animate-blob1 pointer-events-none"></div>

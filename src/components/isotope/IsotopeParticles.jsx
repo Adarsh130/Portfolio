@@ -2,30 +2,30 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const IsotopeParticles = ({ 
-  count = 30, 
+  count = 15, // Reduced from 30 for better performance
   color = '#3B82F6', 
   opacity = 0.3,
   size = 'mixed',
   speed = 'medium',
   shape = 'circle',
   className = '',
-  glowEffect = true,
+  glowEffect = false, // Disabled by default for performance
   trailEffect = false,
   magneticEffect = false
 }) => {
   const [particles, setParticles] = useState([]);
 
   const speedSettings = {
-    slow: { min: 20, max: 30 },
-    medium: { min: 15, max: 25 },
-    fast: { min: 10, max: 20 }
+    slow: { min: 25, max: 35 },
+    medium: { min: 20, max: 30 },
+    fast: { min: 15, max: 25 }
   };
 
   const sizeSettings = {
     small: { min: 2, max: 4 },
     medium: { min: 4, max: 8 },
     large: { min: 8, max: 12 },
-    mixed: { min: 2, max: 10 }
+    mixed: { min: 2, max: 8 }
   };
 
   const shapes = {
@@ -65,39 +65,28 @@ const IsotopeParticles = ({
     animate: (particle) => ({
       y: [
         0, 
-        particle.direction * -40, 
-        particle.direction * -20, 
+        particle.direction * -25, 
         0
       ],
       x: [
         0, 
-        particle.direction * 25, 
-        particle.direction * -15, 
+        particle.direction * 15, 
         0
       ],
-      rotate: [0, particle.rotationSpeed, particle.rotationSpeed * 1.5],
       opacity: [
-        opacity * 0.2, 
-        opacity * particle.glowIntensity, 
-        opacity * 0.6, 
-        opacity * 0.2
+        opacity * 0.4, 
+        opacity * 0.8, 
+        opacity * 0.4
       ],
       scale: [
-        0.6, 
-        1.4 * particle.morphIntensity, 
-        0.9, 
-        0.6
+        0.8, 
+        1.2, 
+        0.8
       ],
-      filter: glowEffect ? [
-        `drop-shadow(0 0 ${particle.size * 0.5}px ${color})`,
-        `drop-shadow(0 0 ${particle.size}px ${color})`,
-        `drop-shadow(0 0 ${particle.size * 0.7}px ${color})`,
-        `drop-shadow(0 0 ${particle.size * 0.5}px ${color})`
-      ] : ['none', 'none', 'none', 'none'],
       transition: {
         duration: particle.duration,
         repeat: Infinity,
-        ease: "easeInOut",
+        ease: "linear",
         delay: particle.delay,
         times: [0, 0.3, 0.7, 1]
       }

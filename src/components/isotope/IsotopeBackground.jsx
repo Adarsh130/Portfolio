@@ -12,10 +12,10 @@ const IsotopeBackground = ({
   const [elements, setElements] = useState([]);
 
   const densitySettings = {
-    low: 12,
-    medium: 22,
-    high: 32,
-    ultra: 42
+    low: 6,
+    medium: 10,
+    high: 15,
+    ultra: 20
   };
 
   const colorSchemes = {
@@ -84,16 +84,14 @@ const IsotopeBackground = ({
 
     const animationProps = animated ? {
       animate: {
-        rotate: [element.rotation, element.rotation + 360],
-        scale: [0.8, 1.4, 0.8],
-        opacity: [opacity * 0.3, opacity * element.glowIntensity, opacity * 0.3],
-        x: [0, element.floatDirection * 30, 0],
-        y: [0, -element.floatDirection * 20, 0]
+        rotate: [element.rotation, element.rotation + 180],
+        scale: [0.9, 1.1, 0.9],
+        opacity: [opacity * 0.5, opacity * 0.8, opacity * 0.5]
       },
       transition: {
         duration: element.duration,
         repeat: Infinity,
-        ease: "easeInOut",
+        ease: "linear",
         delay: element.delay
       }
     } : {};
